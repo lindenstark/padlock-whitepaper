@@ -6,3 +6,5 @@ edits via pull request.
 
 If you are unable/unwilling to contribute, issues are still helpful, feel free
 to submit.
+
+PDF version is available under releases
