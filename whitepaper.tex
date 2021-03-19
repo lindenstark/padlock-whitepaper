@@ -65,9 +65,8 @@ It's important to make a distinction when talking about coins in this context.
 Coins, in this context, do not refer to a unit of currency, but rather a chain
 of digital signatures. When you transfer a coin, you are appending a signature
 to this history. Each transaction has an \textit{input} and \textit{output}. The
-input is the hash of ttransaction that the sender the coin, and the output is the new
-owner(s) of the coin. The input is represented as the hash of the previous
-transaction.
+input is the hash of the transaction's sender, and the output of the recipient(s) of the coin. 
+The input is represented as the hash of the previous transaction.
 
 \begin{verbatim}
     \\ Example written in Rust
