@@ -29,9 +29,19 @@ work. Only a hash of the signature is stored on-chain, and the public key is
 left off-chain. Alongside the signature hash is an input hash, an output hash,
 and a proof of work. These four together, make up an \textit{entry}.
 
-\begin{verbatim} \\ Example written in Rust type Hash = [u8; 16];
-
-struct Entry { input: Hash, output: Hash, signature_hash: Hash, } \end{verbatim}
+\begin{verbatim}
+    \\ Example written in Rust
+    struct Coin {
+    	transactions: Vec<Transaction>,
+    }
+     
+    struct Transaction {
+    	input_hash: Hash,
+    	output: Vec<PublicKey>,
+    	hash: Hash,
+    	signature: [u8; 64],
+    }
+\end{verbatim}
 
 Anyone can submit any entry to the blockchain. They do not have to provide any
 sort of signature, just an object of three 16 byte arrays. This provides a base
@@ -47,11 +57,19 @@ you are appending a signature to this history. Each transaction has an
 sender, and the output of the recipient(s) of the coin. The input is
 represented as the hash of the previous transaction.
 
-\begin{verbatim} \\ Example written in Rust struct Coin { transactions:
-Vec<Transaction>, }
-
- struct Transaction { input_hash: Hash, output: Vec<PublicKey>, hash: Hash,
-signature: [u8; 64], } \end{verbatim}
+\begin{verbatim}
+    \\ Example written in Rust
+    struct Coin {
+        transactions: Vec<Transaction>,
+    }
+     
+    struct Transaction {
+        input_hash: Hash,
+        output: Vec<PublicKey>,
+        hash: Hash,
+        signature: [u8; 64],
+    }
+\end{verbatim}
 
 This coin can be split into multiple coins as well, specifying more than one
 public key as the new owner, each representing a fraction of the value of the
